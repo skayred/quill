@@ -165,9 +165,9 @@ class BaseTooltip extends Tooltip {
       const actionButton = this.container.querySelector('.ql-action');
       const value = this.textbox.value;
       if (verifyVideoUrl(value)) {
-        actionButton.setAttribute('disabled', false);
+        actionButton.classList.add('action-disabled');
       } else {
-        actionButton.setAttribute('disabled', true);
+        actionButton.classList.remove('action-disabled');
       }
       if (Keyboard.match(event, 'enter')) {
         this.save();

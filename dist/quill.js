@@ -6667,9 +6667,9 @@ var BaseTooltip = function (_Tooltip) {
         var actionButton = _this5.container.querySelector('.ql-action');
         var value = _this5.textbox.value;
         if (verifyVideoUrl(value)) {
-          actionButton.setAttribute('disabled', false);
+          actionButton.classList.add('action-disabled');
         } else {
-          actionButton.setAttribute('disabled', true);
+          actionButton.classList.remove('action-disabled');
         }
         if (_keyboard2.default.match(event, 'enter')) {
           _this5.save();
