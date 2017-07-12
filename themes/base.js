@@ -244,7 +244,7 @@ function extractVideoUrl(url) {
   if (match = url.match(/^(?:(https?):\/\/)?(?:www\.)?vimeo\.com\/(\d+)/)) {  // eslint-disable-line no-cond-assign
     return (match[1] || 'https') + '://player.vimeo.com/video/' + match[2] + '/';
   }
-  throw new Exception('wrong_url');
+  throw new Error('wrong_url');
 }
 
 function fillSelect(select, values, defaultValue = false) {
