@@ -7816,7 +7816,7 @@ var Tooltip = function () {
     key: 'hide',
     value: function hide() {
       this.root.classList.add('ql-hidden');
-      this.editor.classList.add('ql-hidden');
+      this.editor.classList.add('ql-no-tooltip');
     }
   }, {
     key: 'position',
@@ -7851,7 +7851,7 @@ var Tooltip = function () {
     value: function show() {
       this.root.classList.remove('ql-editing');
       this.root.classList.remove('ql-hidden');
-      this.editor.classList.remove('ql-hidden');
+      this.editor.classList.remove('ql-no-tooltip');
     }
   }]);
 
