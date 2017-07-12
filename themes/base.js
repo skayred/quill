@@ -162,6 +162,13 @@ class BaseTooltip extends Tooltip {
 
   listen() {
     this.textbox.addEventListener('keydown', (event) => {
+      const actionButton = this.container.querySelector('.ql-action');
+      const value = this.textbox.value;
+      if (this.verifyVideoUrl(value)) {
+        actionButton.setAttribute('disabled', false);
+      } else {
+        actionButton.setAttribute('disabled', true);
+      }
       if (Keyboard.match(event, 'enter')) {
         this.save();
         event.preventDefault();
@@ -234,6 +241,17 @@ class BaseTooltip extends Tooltip {
   }
 }
 
+function verifyVideoUrl(url) {
+  let match = url.match(/^(?:(https?):\/\/)?(?:(?:www|m)\.)?youtube\.com\/watch.*v=([a-zA-Z0-9_-]+)/) ||
+              url.match(/^(?:(https?):\/\/)?(?:(?:www|m)\.)?youtu\.be\/([a-zA-Z0-9_-]+)/);
+  if (match) {
+    return true;
+  }
+  if (match = url.match(/^(?:(https?):\/\/)?(?:www\.)?vimeo\.com\/(\d+)/)) {  // eslint-disable-line no-cond-assign
+    return true;
+  }
+  throw false;
+}
 
 function extractVideoUrl(url) {
   let match = url.match(/^(?:(https?):\/\/)?(?:(?:www|m)\.)?youtube\.com\/watch.*v=([a-zA-Z0-9_-]+)/) ||
@@ -244,7 +262,7 @@ function extractVideoUrl(url) {
   if (match = url.match(/^(?:(https?):\/\/)?(?:www\.)?vimeo\.com\/(\d+)/)) {  // eslint-disable-line no-cond-assign
     return (match[1] || 'https') + '://player.vimeo.com/video/' + match[2] + '/';
   }
-  throw new Error('wrong_url');
+  throw url;
 }
 
 function fillSelect(select, values, defaultValue = false) {
