@@ -17,6 +17,7 @@ class Tooltip {
   }
 
   hide() {
+    document.getElementsByClassName('ql-container')[0].classList.add('ql-no-tooltip');
     this.root.classList.add('ql-hidden');
     document.getElementsByClassName('ql-editor')[0].classList.add('ql-no-tooltip');
   }
@@ -49,6 +50,7 @@ class Tooltip {
   }
 
   show() {
+    document.getElementsByClassName('ql-container')[0].classList.remove('ql-no-tooltip');
     this.root.classList.remove('ql-editing');
     this.root.classList.remove('ql-hidden');
     document.getElementsByClassName('ql-editor')[0].classList.remove('ql-no-tooltip');
