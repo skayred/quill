@@ -7797,7 +7797,7 @@ var Tooltip = function () {
 
     this.quill = quill;
     this.boundsContainer = boundsContainer || document.body;
-    this.root = quill.addContainer('ql-tooltip', this.boundsContainer.getElementsByClassName('ql-editor'));
+    this.root = quill.addContainer('ql-tooltip', document.getElementsByClassName('ql-editor'));
     this.root.innerHTML = this.constructor.TEMPLATE;
     if (this.quill.root === this.quill.scrollingContainer) {
       this.quill.root.addEventListener('scroll', function () {
