@@ -164,7 +164,7 @@ class BaseTooltip extends Tooltip {
     this.textbox.addEventListener('keydown', (event) => {
       const actionButton = this.container.querySelector('.ql-action');
       const value = this.textbox.value;
-      if (this.verifyVideoUrl(value)) {
+      if (verifyVideoUrl(value)) {
         actionButton.setAttribute('disabled', false);
       } else {
         actionButton.setAttribute('disabled', true);
@@ -250,7 +250,7 @@ function verifyVideoUrl(url) {
   if (match = url.match(/^(?:(https?):\/\/)?(?:www\.)?vimeo\.com\/(\d+)/)) {  // eslint-disable-line no-cond-assign
     return true;
   }
-  throw false;
+  return false;
 }
 
 function extractVideoUrl(url) {

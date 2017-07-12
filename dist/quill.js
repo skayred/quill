@@ -6666,7 +6666,7 @@ var BaseTooltip = function (_Tooltip) {
       this.textbox.addEventListener('keydown', function (event) {
         var actionButton = _this5.container.querySelector('.ql-action');
         var value = _this5.textbox.value;
-        if (_this5.verifyVideoUrl(value)) {
+        if (verifyVideoUrl(value)) {
           actionButton.setAttribute('disabled', false);
         } else {
           actionButton.setAttribute('disabled', true);
@@ -6765,7 +6765,7 @@ function verifyVideoUrl(url) {
     // eslint-disable-line no-cond-assign
     return true;
   }
-  throw false;
+  return false;
 }
 
 function extractVideoUrl(url) {
