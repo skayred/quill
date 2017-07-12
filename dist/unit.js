@@ -7799,7 +7799,7 @@ var Tooltip = function () {
     this.boundsContainer = boundsContainer || document.body;
     // this.root = quill.addContainer('ql-tooltip');
     this.root = document.createElement('div');
-    this.editor = document.getElementsByClassName('ql-editor');
+    this.editor = document.getElementsByClassName('ql-editor')[0];
     this.root.classList.add('ql-tooltip');
     var container = document.getElementsByClassName('ql-container')[0];
     this.root = container.insertBefore(this.root, container.firstElementChild);
