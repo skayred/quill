@@ -2,7 +2,14 @@ class Tooltip {
   constructor(quill, boundsContainer) {
     this.quill = quill;
     this.boundsContainer = boundsContainer || document.body;
-    this.root = quill.addContainer('ql-tooltip');
+    //this.root = quill.addContainer('ql-tooltip');
+    this.root = document.createElement('div');
+    this.root.classList.add('ql-tooltip');
+    const container = document.getElementsByClassName('ql-container')[0];
+    this.root = container.insertBefore(
+      this.root,
+      container.firtChild,
+    );
     this.root.innerHTML = this.constructor.TEMPLATE;
     if (this.quill.root === this.quill.scrollingContainer) {
       this.quill.root.addEventListener('scroll', () => {
