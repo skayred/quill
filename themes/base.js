@@ -166,10 +166,10 @@ class BaseTooltip extends Tooltip {
       const value = this.textbox.value;
       if (verifyVideoUrl(value)) {
         actionButton.classList.remove('action-disabled');
-        actionButton.setAttribute('disabled': false);
+        actionButton.setAttribute('disabled', false);
       } else {
         actionButton.classList.add('action-disabled');
-        actionButton.setAttribute('disabled': true);
+        actionButton.setAttribute('disabled', true);
       }
       if (Keyboard.match(event, 'enter')) {
         this.save();
