@@ -2,7 +2,7 @@ class Tooltip {
   constructor(quill, boundsContainer) {
     this.quill = quill;
     this.boundsContainer = boundsContainer || document.body;
-    //this.root = quill.addContainer('ql-tooltip');
+    // this.root = quill.addContainer('ql-tooltip');
     this.root = document.createElement('div');
     this.root.classList.add('ql-tooltip');
     const container = document.getElementsByClassName('ql-container')[0];
