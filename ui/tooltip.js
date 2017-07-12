@@ -4,7 +4,6 @@ class Tooltip {
     this.boundsContainer = boundsContainer || document.body;
     // this.root = quill.addContainer('ql-tooltip');
     this.root = document.createElement('div');
-    this.editor = document.getElementsByClassName('ql-editor')[0];
     this.root.classList.add('ql-tooltip');
     const container = document.getElementsByClassName('ql-container')[0];
     this.root = container.insertBefore(this.root, container.firstElementChild);
@@ -19,7 +18,7 @@ class Tooltip {
 
   hide() {
     this.root.classList.add('ql-hidden');
-    this.editor.classList.add('ql-no-tooltip');
+    document.getElementsByClassName('ql-editor')[0].classList.add('ql-no-tooltip');
   }
 
   position(reference) {
@@ -52,7 +51,7 @@ class Tooltip {
   show() {
     this.root.classList.remove('ql-editing');
     this.root.classList.remove('ql-hidden');
-    this.editor.classList.remove('ql-no-tooltip');
+    document.getElementsByClassName('ql-editor')[0].classList.remove('ql-no-tooltip');
   }
 }
 
