@@ -162,12 +162,14 @@ class BaseTooltip extends Tooltip {
 
   listen() {
     this.textbox.addEventListener('keydown', (event) => {
-      const actionButton = this.container.querySelector('.ql-action');
+      const actionButton = this.root.querySelector('.ql-action');
       const value = this.textbox.value;
       if (verifyVideoUrl(value)) {
-        actionButton.classList.add('action-disabled');
-      } else {
         actionButton.classList.remove('action-disabled');
+        actionButton.setAttribute('disabled': false);
+      } else {
+        actionButton.classList.add('action-disabled');
+        actionButton.setAttribute('disabled': true);
       }
       if (Keyboard.match(event, 'enter')) {
         this.save();
