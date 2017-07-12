@@ -6,7 +6,7 @@ class Tooltip {
     this.root = document.createElement('div');
     this.root.classList.add('ql-tooltip');
     const container = document.getElementsByClassName('ql-container')[0];
-    this.root = container.insertBefore(this.root, container.firtChild);
+    this.root = container.insertBefore(this.root, container.firstElementChild);
     this.root.innerHTML = this.constructor.TEMPLATE;
     if (this.quill.root === this.quill.scrollingContainer) {
       this.quill.root.addEventListener('scroll', () => {
