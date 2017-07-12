@@ -161,7 +161,7 @@ class BaseTooltip extends Tooltip {
   }
 
   listen() {
-    this.textbox.addEventListener('keydown', (event) => {
+    this.textbox.addEventListener('keyup', (event) => {
       const actionButton = this.root.querySelector('.ql-action');
       const value = this.textbox.value;
       if (verifyVideoUrl(value)) {

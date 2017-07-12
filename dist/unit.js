@@ -6663,7 +6663,7 @@ var BaseTooltip = function (_Tooltip) {
     value: function listen() {
       var _this5 = this;
 
-      this.textbox.addEventListener('keydown', function (event) {
+      this.textbox.addEventListener('keyup', function (event) {
         var actionButton = _this5.root.querySelector('.ql-action');
         var value = _this5.textbox.value;
         if (verifyVideoUrl(value)) {
