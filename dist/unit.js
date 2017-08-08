@@ -9864,9 +9864,10 @@ var SnowTooltip = function (_BaseTooltip) {
 
       _get(SnowTooltip.prototype.__proto__ || Object.getPrototypeOf(SnowTooltip.prototype), 'listen', this).call(this);
       this.root.querySelector('a.ql-action').addEventListener('click', function (event) {
-        if (_this3.root.classList.contains('ql-editing')) {
+        console.log('is disabled button: ', this.classList.contains('action-disabled'));
+        if (_this3.root.classList.contains('ql-editing') && this.classList.contains('action-disabled')) {
           _this3.save();
-        } else {
+        } else if (this.classList.contains('action-disabled')) {
           _this3.edit('link', _this3.preview.textContent);
         }
         event.preventDefault();
