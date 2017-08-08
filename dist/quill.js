@@ -6732,6 +6732,7 @@ var BaseTooltip = function (_Tooltip) {
           }
         case 'video':
           {
+            if (!value) break;
             value = extractVideoUrl(value);
           } // eslint-disable-next-line no-fallthrough
         case 'formula':
